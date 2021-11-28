@@ -15,5 +15,16 @@
     </ul>
 <p>
 
+<p>
+    <ul>
+    Prerequisites:
+        <li>Node (preffered installation via nvm)</li>
+        <li>npm (installed from linux package manager, updated via "npm install -g npm"</li>
+        <li>Typescript (installed via "npm install -g typescript")</li>
+        <li>Angular (installed via "npm install -g @angular/cli")</li>
+    </ul>
+<p>
+
+
 <p>To add new translation, create .json file in ./front/assets/i18n/ and include it in ./front/src/app/translate-universal-loader.service.ts like others</p>
 
