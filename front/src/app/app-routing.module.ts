@@ -5,7 +5,6 @@ import { BaseComponent } from './base/base.component';
 const routes: Routes = [
     // declare routes
     { path: '', component: BaseComponent },
-    { path: 'test' },
 ];
 
 // eslint-disable-next-line new-cap

@@ -1,11 +1,26 @@
 import { TestBed } from '@angular/core/testing';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BaseComponent } from './base/base.component';
+import { TranslateUniversalLoaderService } from './translate-universal-loader.service';
 
 describe( 'AppComponent', () => {
     beforeEach( async () => {
         await TestBed.configureTestingModule( {
             declarations: [
                 AppComponent,
+                BaseComponent,
+            ],
+            imports: [
+                AppRoutingModule,
+                TranslateModule.forRoot( {
+                    defaultLanguage: 'en',
+                    loader: {
+                        provide: TranslateLoader,
+                        useClass: TranslateUniversalLoaderService,
+                    },
+                } ),
             ],
         } ).compileComponents();
     } );
@@ -26,6 +41,7 @@ describe( 'AppComponent', () => {
         const fixture = TestBed.createComponent( AppComponent );
         fixture.detectChanges();
         const compiled = fixture.nativeElement as HTMLElement;
-        expect( compiled.querySelector( '.content span' )?.textContent ).toContain( 'front app is running!' );
+        expect( compiled.querySelector( 'router-outlet' ) )
+            .toBeTruthy();
     } );
 } );

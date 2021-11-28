@@ -1,0 +1,16 @@
+on: push
+name: Lint
+jobs:
+  build-and-publish:
+    name: build and publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: npm install
+        uses: actions/npm@master
+        with:
+          args: run all:install
+      - name: npm lint
+        uses: actions/npm@master
+        with:
+          args: run lint

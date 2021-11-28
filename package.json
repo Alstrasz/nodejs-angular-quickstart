@@ -7,11 +7,16 @@
     "start": "node ./dist/main.js",
     "back:build": "npx tsc",
     "back:run": "npm run back:build && npm run start",
+    "back:install": "npm install",
+    "back:test": "jest --coverage ./back/test",
+    "front:test": "npm --prefix ./front run test",
     "front:build": "npm --prefix ./front run build",
+    "front:install": "npm --prefix install",
     "all:build": "npm run front:build && npm run back:build && npm run start",
     "all:run": "npm run all:build",
-    "test": "jest --coverage ./back/test",
-    "test:watch": "jest --watch ./back/test"
+    "all:lint": "npx eslint \"./**/*.ts\"",
+    "all:fix_lint": "npx eslint \"./**/*.ts\" --fix",
+    "all:install": "npm run back:install && npm run front:install"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [],
@@ -35,6 +40,9 @@
   "dependencies": {
     "@types/http-status-codes": "^1.2.0",
     "express": "^4.17.1",
-    "http-status-codes": "^2.1.4"
+    "http-status-codes": "^2.1.4",
+    "pino": "^7.4.1",
+    "pino-http": "^6.3.1",
+    "pino-pretty": "^7.2.0"
   }
 }
