@@ -30,4 +30,8 @@ describe( 'status integration tests', () => {
             .set( 'Reject', 'application/json' )
             .expect( StatusCodes.NOT_FOUND );
     } );
+
+    afterAll( () => {
+        process.exit( 0 );
+    } );
 } );
