@@ -18,6 +18,6 @@ jobs:
         env:
           CI: true
       - name: npm back:test
-        run: npm run back:test
+        run: npm run back:test_ci
         env:
           CI: true
