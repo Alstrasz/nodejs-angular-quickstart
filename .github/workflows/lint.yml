@@ -13,8 +13,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm all:install
-        run: npm run all:install
+      - name: npm back:install
+        run: npm run back:install
+        env:
+          CI: true
+      - name: npm front:install
+        working-directory: front
+        run: npm run install
         env:
           CI: true
       - name: npm all:lint

@@ -7,6 +7,9 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
+    default:
+      run:
+        working-directory: front
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js ${{ matrix.node-version }}
@@ -14,10 +17,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: npm front:install
-        run: npm run front:install
+        run: npm run install
         env:
           CI: true
       - name: npm front:test
-        run: npm run front:test
+        run: npm run test
         env:
           CI: true

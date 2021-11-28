@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build --base-href --output-path ../mkp",
-    "test": "npx jest"
+    "test": "npx jest --watchAll=false",
+    "install": "npm install"
   },
   "private": true,
   "dependencies": {
