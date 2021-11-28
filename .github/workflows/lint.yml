@@ -19,7 +19,7 @@ jobs:
           CI: true
       - name: npm front:install
         working-directory: front
-        run: npm run install
+        run: npm install
         env:
           CI: true
       - name: npm all:lint
