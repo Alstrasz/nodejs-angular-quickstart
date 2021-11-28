@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build --base-href --output-path ../mkp",
-    "test": "npx jest --watchAll=false --coverage"
+    "test_ci": "npx jest --coverage --ci --detectOpenHandles --forceExit",
+    "test": "npx jest --coverage"
   },
   "private": true,
   "dependencies": {

@@ -19,6 +19,6 @@ jobs:
         env:
           CI: true
       - name: npm front:test
-        run: npm run front:test
+        run: npm run front:test_ci
         env:
           CI: true
