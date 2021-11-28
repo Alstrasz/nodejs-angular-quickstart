@@ -23,6 +23,6 @@ jobs:
         env:
           CI: true
       - name: npm all:lint
-        run: npm all:lint
+        run: npm run all:lint
         env:
           CI: true
