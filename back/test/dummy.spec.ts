@@ -7,9 +7,6 @@ describe( 'Dummy', () => {
 
     it( 'should work with before each', async () => {
         expect( counter + 1 ).toEqual( 2 );
-    } );
-
-    afterAll( () => {
-        process.exit( 0 );
+        return 0;
     } );
 } );

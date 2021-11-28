@@ -14,13 +14,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: npm front:install
-        run: |
-          cd front
-          npm run install
+        working-directory: front
+        run: npm install
         env:
           CI: true
       - name: npm front:test
-        working-directory: front
-        run: npm run test
+        run: npm run front:test
         env:
           CI: true
