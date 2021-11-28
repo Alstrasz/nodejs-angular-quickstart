@@ -1,16 +1,23 @@
 on: push
-name: Fronted test
+name: Frontend test
 jobs:
-  build-and-publish:
-    name: build and publish
+  test:
+    name: test front
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
     steps:
       - uses: actions/checkout@master
-      - name: npm install
-        uses: actions/npm@master
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          args: run front:install
+          node-version: ${{ matrix.node-version }}
+      - name: npm front:install
+        run: npm run front:install
+        env:
+          CI: true
       - name: npm front:test
-        uses: actions/npm@master
-        with:
-          args: run front:test
+        run: npm run front:test
+        env:
+          CI: true

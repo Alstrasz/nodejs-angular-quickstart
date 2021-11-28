@@ -1,16 +1,23 @@
 on: push
-name: Lint
+name: Linter
 jobs:
-  build-and-publish:
-    name: build and publish
+  test:
+    name: lint all
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
     steps:
       - uses: actions/checkout@master
-      - name: npm install
-        uses: actions/npm@master
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          args: run all:install
-      - name: npm lint
-        uses: actions/npm@master
-        with:
-          args: run lint
+          node-version: ${{ matrix.node-version }}
+      - name: npm all:install
+        run: npm run all:install
+        env:
+          CI: true
+      - name: npm all:lint
+        run: npm all:lint
+        env:
+          CI: true
